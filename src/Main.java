@@ -1,4 +1,5 @@
 public class Main {
+
     public static void main(String[] args) {
 
         Storage storage = new Storage();
@@ -14,11 +15,20 @@ public class Main {
         storage.addEmployee("Павлов Павел Павлович ", 5, 30000);
 
         storage.printAllEmployee();
-        storage.costAmount();
-        storage.minSalary();
-        storage.maxSalary();
-        storage.AverageSalary();
+        System.out.println("storage.costAmount() = " + storage.costAmount());
+        System.out.println("storage.minSalary() = " + storage.minSalary());
+        System.out.println("storage.maxSalary() = " + storage.maxSalary());
+        System.out.println("storage.averageSalary() = " + storage.averageSalary());
         storage.printAllEmployeeName();
+        // Методы для повышенной сложности
+        storage.salaryIndexing(22);// индексируем зп на 22% всем сотрудникам
+        storage.deptMinSalary(3);
+        storage.deptMaxSalary(5);
+        storage.deptCostAmount(2);
+        storage.deptAverageSalary(1);
+        storage.deptAllEmployeePrint(4);
+        storage.findBeggarEmployee(25000);
+        storage.findRichEmployee(32000);
 
 
     }
