@@ -15,18 +15,18 @@ public class Main {
         storage.addEmployee("Павлов Павел Павлович ", 5, 30000);
 
         storage.printAllEmployee();
-        System.out.println("storage.costAmount() = " + storage.costAmount());
-        System.out.println("storage.minSalary() = " + storage.minSalary());
-        System.out.println("storage.maxSalary() = " + storage.maxSalary());
-        System.out.println("storage.averageSalary() = " + storage.averageSalary());
+        System.out.println("storage.calculateCostAmount() = " + storage.calculateCostAmount());
+        System.out.println("storage.findEployeeWithMinSalary() = " + storage.findEployeeWithMinSalary());
+        System.out.println("storage.findEployeeWithMaxSalary() = " + storage.findEployeeWithMaxSalary());
+        System.out.println("storage.findAverageSalary() = " + storage.findAverageSalary());
         storage.printAllEmployeeName();
         // Методы для повышенной сложности
-        storage.salaryIndexing(22);// индексируем зп на 22% всем сотрудникам
-        storage.deptMinSalary(3);
-        storage.deptMaxSalary(5);
-        storage.deptCostAmount(2);
-        storage.deptAverageSalary(1);
-        storage.deptAllEmployeePrint(4);
+        storage.indexSalary(22);// индексируем зп на 22% всем сотрудникам
+        storage.findDeptMinSalary(3);
+        storage.findDeptMaxSalary(5);
+        storage.calculateDeptCostAmount(2);
+        storage.calculareDeptAverageSalary(1);
+        storage.printDeptAllEmployee(4);
         storage.findBeggarEmployee(25000);
         storage.findRichEmployee(32000);
 

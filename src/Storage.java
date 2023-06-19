@@ -25,7 +25,7 @@ public class Storage {
         }
     }
 
-    public int costAmount() {
+    public int calculateCostAmount() {
         int costAmount = 0;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -34,7 +34,18 @@ public class Storage {
         return costAmount;
     }
 
-    public Employee minSalary() {
+    public Employee findEployeeWithMinSalary() {
+       // Проверил, так код у меня не заработал оставил как было!
+
+       /* Employee minCoast = employees[0];
+        for (int i = 0; i < size; i++) {
+            Employee employee = employees[i];
+            if (employee.getSalary()) < minCoast.getSalary()) {
+                minCoast=employee;
+               }
+        return minCoast;
+        }*/
+
         int minCost = 30_000;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -51,7 +62,7 @@ public class Storage {
         return null;
     }
 
-    public Employee maxSalary() {
+    public Employee findEployeeWithMaxSalary() {
         int maxCost = 0;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -68,27 +79,23 @@ public class Storage {
         return null;
     }
 
-    public double averageSalary() {
-        double costAmount = 0;
-        for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            costAmount += employee.getSalary();
-        }
-        return costAmount / size;
-    }
+    public double findAverageSalary() {
+        double costAmount=calculateCostAmount();
+        return costAmount/employees.length;
+           }
 
-    public void salaryIndexing(int a) {
+    public void indexSalary(int indexingPercent) {
         int percent;
         int result;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            percent = (employee.getSalary() / 100) * a;
+            percent = (employee.getSalary() / 100) * indexingPercent;
             result = employee.getSalary() + percent;
             employee.setSalary(result);
         }
     }
 
-    public Employee deptMinSalary(int dept) {
+    public Employee findDeptMinSalary(int dept) {
         int min = 100_000_000;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -104,7 +111,7 @@ public class Storage {
         return null;
     }
 
-    public Employee deptMaxSalary(int dept) {
+    public Employee findDeptMaxSalary(int dept) {
         int max = 0;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -120,7 +127,7 @@ public class Storage {
         return null;
     }
 
-    public void deptCostAmount(int dept) {
+    public int calculateDeptCostAmount(int dept) {
         int sum = 0;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -128,10 +135,10 @@ public class Storage {
                 sum += employee.getSalary();
             }
         }
-        System.out.println("Общая сумма выплат в отделе " + dept + " составляет " + sum + " рупий");
+        return sum;
     }
 
-    public double deptAverageSalary(int dept) {
+    public double calculareDeptAverageSalary(int dept) {
         double sum = 0;
         int counter = 0;
         for (int i = 0; i < size; i++) {
@@ -157,7 +164,7 @@ public class Storage {
         }
     }
 
-    public void deptAllEmployeePrint(int dept) {
+    public void printDeptAllEmployee(int dept) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
             if (employee.getDepartment() == dept) {
@@ -166,19 +173,19 @@ public class Storage {
         }
     }
 
-    public void findBeggarEmployee(int a) {
+    public void findBeggarEmployee(int checkSalary) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            if (employee.getSalary() < a) {
+            if (employee.getSalary() < checkSalary) {
                 System.out.println("Id : " + employee.getId() + " Ф.И.О. сотрудника : " + employee.getName() + "| Заработная плата : " + employee.getSalary());
             }
         }
     }
 
-    public void findRichEmployee(int a) {
+    public void findRichEmployee(int checkSalary) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            if (employee.getSalary() >= a) {
+            if (employee.getSalary() >= checkSalary) {
                 System.out.println("Id : " + employee.getId() + " Ф.И.О. сотрудника : " + employee.getName() + "| Заработная плата : " + employee.getSalary());
             }
         }
