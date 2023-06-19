@@ -21,15 +21,13 @@ public class Main {
         System.out.println("storage.findAverageSalary() = " + storage.findAverageSalary());
         storage.printAllEmployeeName();
         // Методы для повышенной сложности
-        storage.indexSalary(22);// индексируем зп на 22% всем сотрудникам
-        storage.findDeptMinSalary(3);
-        storage.findDeptMaxSalary(5);
+        storage.indexSalary(22);// индексируем зп на 22% всем сотрудникам*/
+        System.out.println("storage.findDeptMinSalary(3) = " + storage.findDeptMinSalary(3));
+        System.out.println("storage.findDeptMaxSalary(5) = " + storage.findDeptMaxSalary(5));
         storage.calculateDeptCostAmount(2);
         storage.calculareDeptAverageSalary(1);
         storage.printDeptAllEmployee(4);
         storage.findBeggarEmployee(25000);
         storage.findRichEmployee(32000);
-
-
     }
 }

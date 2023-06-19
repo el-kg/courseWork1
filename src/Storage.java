@@ -35,54 +35,31 @@ public class Storage {
     }
 
     public Employee findEployeeWithMinSalary() {
-       // Проверил, так код у меня не заработал оставил как было!
-
-       /* Employee minCoast = employees[0];
+        Employee minCoast = employees[0];
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            if (employee.getSalary()) < minCoast.getSalary()) {
-                minCoast=employee;
-               }
+            if (employee.getSalary() < minCoast.getSalary()) {
+                minCoast = employee;
+            }
+        }
         return minCoast;
-        }*/
-
-        int minCost = 30_000;
-        for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            if (employee.getSalary() < minCost) {
-                minCost = employee.getSalary();
-            }
-        }
-        for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            if (employee.getSalary() == minCost) {
-                return employees[i];
-            }
-        }
-        return null;
     }
 
     public Employee findEployeeWithMaxSalary() {
-        int maxCost = 0;
+        Employee maxCoast = employees[0];
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            if (employee.getSalary() > maxCost) {
-                maxCost = employee.getSalary();
+            if (employee.getSalary() > maxCoast.getSalary()) {
+                maxCoast = employee;
             }
         }
-        for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            if (employee.getSalary() == maxCost) {
-                return employees[i];
-            }
-        }
-        return null;
+        return maxCoast;
     }
 
     public double findAverageSalary() {
-        double costAmount=calculateCostAmount();
-        return costAmount/employees.length;
-           }
+        double costAmount = calculateCostAmount();
+        return costAmount / employees.length;
+    }
 
     public void indexSalary(int indexingPercent) {
         int percent;
@@ -96,35 +73,29 @@ public class Storage {
     }
 
     public Employee findDeptMinSalary(int dept) {
-        int min = 100_000_000;
+        Employee minCoast = findEployeeWithMaxSalary();
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
             if (employee.getDepartment() == dept) {
-                if (employee.getSalary() < min) {
-                    min = employee.getSalary();
+                if (employee.getSalary() < minCoast.getSalary()) {
+                    minCoast = employee;
                 }
             }
-            if (employee.getDepartment() == min) {
-                return employees[i];
-            }
         }
-        return null;
+        return minCoast;
     }
 
     public Employee findDeptMaxSalary(int dept) {
-        int max = 0;
+        Employee maxCoast = findEployeeWithMinSalary();
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
             if (employee.getDepartment() == dept) {
-                if (employee.getSalary() > max) {
-                    max = employee.getSalary();
+                if (employee.getSalary() > maxCoast.getSalary()) {
+                    maxCoast = employee;
                 }
             }
-            if (employee.getDepartment() == max) {
-                return employees[i];
-            }
         }
-        return null;
+        return maxCoast;
     }
 
     public int calculateDeptCostAmount(int dept) {
